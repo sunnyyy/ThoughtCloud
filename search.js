@@ -15,6 +15,7 @@ window.onload = resetGradient("meh");
 window.onresize = resetGradient("meh");
 
 function resetGradient(mood) {
+	var body = document.querySelector("body");
 	var gradient = document.querySelector("#gradient");
 	var height = gradient.clientHeight;
 	console.log(gradient);
@@ -23,8 +24,14 @@ function resetGradient(mood) {
 	while (gradient.firstChild) {
 		gradient.removeChild(gradient.firstChild);
 	}
-	if (colors[mood]) {gradient.style.backgroundColor = colors[mood].light;} 
-	else {gradient.style.backgroundColor = colors["default"].light;} 
+	if (colors[mood]) {
+		gradient.style.backgroundColor = colors[mood].light;
+		body.style.backgroundColor = colors[mood].light;
+	} 
+	else {
+		gradient.style.backgroundColor = colors["default"].light;
+		body.style.backgroundColor = colors["default"].light;
+	} 
 	
 	for (var i = height; i >= 0; i-=2) {
 		var ombre = document.createElement("div");
