@@ -103,7 +103,8 @@ function resetGradient(mood) {
   while (gradient.firstChild) {
     gradient.removeChild(gradient.firstChild);
   }
-  
+  var body = document.querySelector("body");
+  body.style.backgroundColor = colors[mood].light;
   gradient.style.backgroundColor = colors[mood].light;
   
   for (var i = height; i >= 0; i-=2) {
