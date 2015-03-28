@@ -16,6 +16,7 @@ body {
 	
 #gradient {
 	height: 100vh;
+	overflow: hidden;
 	background-color: white;
 	position: absolute;
 	top: 0px;
