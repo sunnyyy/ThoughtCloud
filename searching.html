@@ -6,7 +6,8 @@
 	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
-	<link href="css/fixedgradient.css" rel="stylesheet">
+		<link href="css/fixedgradient.css" rel="stylesheet">
+		
 	  <!-- Bootstrap -->
 	  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
 	  <!--[if lt IE 9]>
@@ -54,32 +55,19 @@
 
 			<div class='row'>
 				<div class='col-md-2'></div>
-				<form method='get' action="php/enter_thought.php">
-					<div class="form-group">
-				    <label for="search">Search for</label>
-				    <input type="text" class="form-control" id="searchbox" placeholder="Search for">
-				  </div>
-				  <input id='ajax_button' class="btn btn-default" type="submit" value="Search"></input>
-				</form>
+				<div class='col-md-7'>
+					<input type="text" class="form-control input-lg" id="searchbox" placeholder="Search for">
+				</div>
+				<div class='col-md-1'>
+					<button id='submit_button' class="btn btn-default btn-lg" type="submit" onclick="searching()"><b>Search</b></button>
+				</div>
 			</div> <!--end div row of form-->
 			<hr>
 
 			<div class='row'>
 				<div class='col-md-3 col-xs-3'></div>
 				<div class='col-md-6 col-xs-6'>
-					<script>
-						$("#ajax_button").click(function () {
-					    $.post("php/thought.php",
-					    	$("form").serialize(),
-					    	successful_search(),
-					    	"json"
-					    );
-						}); // end of .click call
 
-						successful_search() {
-							
-						}
-					</script>
 				</div>
 			</div>
 			
