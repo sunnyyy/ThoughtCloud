@@ -15,7 +15,7 @@ body {
 }
 	
 #gradient {
-	height: 100vh;
+	min-height: 100vh;
 	overflow: hidden;
 	background-color: white;
 	position: absolute;
@@ -29,10 +29,12 @@ body {
   font-family: 'Open Sans', sans-serif;
   background: #003;
   color: #fff;
+  font-weight: 400;
 }
 h1 {
 	color: #fff;
   text-align: center;
+  font-weight: 300;
 }
 li {
 	font-size: 150%;
@@ -67,10 +69,16 @@ small {
 	height: 30px;
 }
 .result {
+	padding-top: 2em;
+	padding-bottom: 2em;
+	padding-left: 20px;
+	padding-right: 20px;
 	width: 100%;
 	background-color: #fff;
 	border-radius:5px;
-	color: #ccc;
+	color: #333;
+	font-size: 150%;
+	opacity: 0.75;
 }
 .circle1 {
 	background: #fff;
@@ -79,6 +87,9 @@ small {
 	width:30px;
 	height:30px;
 	border-radius:15px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	opacity: 0.75;
 }
 .circle2 {
 	background: #fff;
@@ -87,4 +98,6 @@ small {
 	width:20px;
 	height:20px;
 	border-radius:10px;
+	margin-bottom: 10px;
+	opacity: 0.75;
 }
