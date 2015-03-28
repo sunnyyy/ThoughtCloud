@@ -7,6 +7,7 @@ var colors = {
 	excited: {dark: "#ff8c00", light: "#ffdb4d"},
 	calm: {dark: "#000d1a", light: "#0059b3"},
 	meh:{dark: "#1a001a", light: "#b300b3"},
+	"default":{dark: "#1a001a", light: "#b300b3"}
 }
 
 /*gradient stuff*/
@@ -22,13 +23,14 @@ function resetGradient(mood) {
 	while (gradient.firstChild) {
 		gradient.removeChild(gradient.firstChild);
 	}
-	
-	gradient.style.backgroundColor = colors[mood].light;
+	if (colors[mood]) {gradient.style.backgroundColor = colors[mood].light;} 
+	else {gradient.style.backgroundColor = colors["default"].light;} 
 	
 	for (var i = height; i >= 0; i-=2) {
 		var ombre = document.createElement("div");
 		ombre.className = "ombre";
-		ombre.style.backgroundColor = colors[mood].dark;
+		if (colors[mood]) {ombre.style.backgroundColor = colors[mood].dark;} 
+		else {ombre.style.backgroundColor = colors["default"].dark;} 
 		ombre.style.height = "2px";
 		ombre.style.opacity = i/height;
 		gradient.appendChild(ombre);
