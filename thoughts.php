@@ -92,7 +92,7 @@
 						require_once('wmdb-dsn.inc');
 						$dbh = db_connect($wmdb_dsn);
 						
-						if ( isset($_POST['thoughtbox']) {
+						if ( isset($_POST['thoughtbox']) ) {
 							$entry = strip_tags( trim( $_POST['thoughtbox'] ) );
 
 							if ( empty($entry) ) {
@@ -113,7 +113,10 @@
 									echo "<p>$value2";
 								}
 
-								$sql 
+								$sql = "INSERT INTO allthoughts(content,uid) values (?,1)";
+								$resultset = prepared_statement($dbh,$sql,$entry);
+								$list_of_thoughts = $resultset->fetchAll(MDB2_FETCHMODE_ASSOC);
+						  	echo $list_of_thoughts;
 
 							} else {
 								echo "<div class='alert alert-danger alert-dismissible' role='alert' style='width:100%'>\n
