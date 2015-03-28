@@ -53,41 +53,28 @@
 
 			<div class='row'>
 				<div class='col-md-2'></div>
-				<form method='get' action="php/enter_thought.php">
-					<div class='col-md-8'>
+				<div class='col-md-8'>
+					<label>.</label><br>
+					<textarea id="thoughtbox" class="form-control input-lg" rows="2" name="thoughtbox" placeholder="How are you feeling today?" 
+						onKeyDown="limitText(this.form.thoughtbox,this.form.countdown,140);" 
+						onKeyUp="limitText(this.form.thoughtbox,this.form.countdown,140);"></textarea>
+					<!--<font size="1">(Maximum characters: 140)<br>You have 
+						<input readonly type="text" name="countdown" size="3" value="140"> characters left.</font>-->
+				</div>
+				<div class='col-md-1'>
+					<div class="form-group">
 						<label>.</label><br>
-						<textarea class="form-control input-lg" rows="2" name="thoughtbox" placeholder="Text input" size='50px'
-							onKeyDown="limitText(this.form.thoughtbox,this.form.countdown,140);" 
-							onKeyUp="limitText(this.form.thoughtbox,this.form.countdown,140);"></textarea>
-						<!--<font size="1">(Maximum characters: 140)<br>You have 
-							<input readonly type="text" name="countdown" size="3" value="140"> characters left.</font>-->
-					</div>
-					<div class='col-md-1'>
-						<div class="form-group">
-							<label>.</label><br>
-					    <input id='ajax_button' class="btn btn-default" type="button" value="Submit"></input>
-					  </div>
-					</div>
-				</form>
+				    <button id='submit_button' class="btn btn-default" type="submit" onclick="submitting()">Submit</button>
+				  </div>
+				</div>
 			</div> <!--end div row of form-->
 			<hr>
 
 			<div class='row'>
 				<div class='col-md-3 col-xs-3'></div>
 				<div class='col-md-6 col-xs-6'>
-					<script>
-						$("#ajax_button").click(function () {
-					    $.post("php/thought.php",
-					    	$("form").serialize(),
-					    	successful_post(),
-					    	"json"
-					    );
-						}); // end of .click call
-
-						successful_post() {
-
-						}
-					</script>
+					<p id='HERE'>
+					</p>
 				</div>
 			</div>
 			
@@ -103,6 +90,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="thoughtcloud.js" language="javascript" type="text/javascript"></script>
     <script language="javascript" type="text/javascript">
 			function limitText(limitField, limitCount, limitNum) {
 				if (limitField.value.length > limitNum) {
