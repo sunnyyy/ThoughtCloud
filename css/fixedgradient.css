@@ -24,3 +24,64 @@ body {
 	width: 100%;
 	z-index: -1;
 }
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: #003;
+  color: #da5;
+}
+h1 {
+  text-align: center;
+}
+li {
+	font-size: 150%;
+}
+a:link, a:visited, a:active, a:hover {
+  color: #000;
+}
+.jumbotron {
+	background: none;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	overflow-x: hidden;
+}
+.jumbotron > small {
+	color: #ccc;
+}
+small {
+	color: #ccc;
+}
+#form textarea {
+	font-size: 200%;
+}
+.searchButton {
+	margin-left: auto;
+	margin-right: auto;
+	
+}
+#HERE {
+	height: 30px;
+}
+.result {
+	width: 100%;
+	background-color: #fff;
+	border-radius:5px;
+}
+.circle1 {
+	background: #fff;
+	display:block;
+	margin-left: 20px;
+	width:30px;
+	height:30px;
+	border-radius:15px;
+}
+.circle2 {
+	background: #fff;
+	display:block;
+	margin-left: 15px;
+	width:20px;
+	height:20px;
+	border-radius:10px;
+}
