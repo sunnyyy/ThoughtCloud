@@ -1,0 +1,25 @@
+body { 
+	background-color: white/* #32c3ff */; 
+	padding: 0; 
+	margin: 0;
+	font-family: "Arial";
+}
+
+.ombre { 
+	width: 100%; 
+	/* background-color:  #32c3ff;  */
+	position: relative; 
+	padding: 0; 
+	margin-top: 0;
+	margin-bottom: 0;
+}
+	
+#gradient {
+	height: 100vh;
+	background-color: white;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	z-index: -1;
+}
