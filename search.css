@@ -64,7 +64,7 @@ button {
 
 .ombre { 
 	width: 100%; 
-	background-color:  #32c3ff; 
+	/* background-color:  #32c3ff;  */
 	position: relative; 
 	padding: 0; 
 	margin-top: 0;
