@@ -28,9 +28,10 @@ body {
 body {
   font-family: 'Open Sans', sans-serif;
   background: #003;
-  color: #da5;
+  color: #fff;
 }
 h1 {
+	color: #fff;
   text-align: center;
 }
 li {
@@ -40,6 +41,7 @@ a:link, a:visited, a:active, a:hover {
   color: #000;
 }
 .jumbotron {
+	color: #ccc;
 	background: none;
 	padding-top: 0px;
 	padding-bottom: 0px;
@@ -48,7 +50,7 @@ a:link, a:visited, a:active, a:hover {
 	overflow-x: hidden;
 }
 .jumbotron > small {
-	color: #ccc;
+	color: #fff;
 }
 small {
 	color: #ccc;
@@ -68,6 +70,7 @@ small {
 	width: 100%;
 	background-color: #fff;
 	border-radius:5px;
+	color: #ccc;
 }
 .circle1 {
 	background: #fff;
