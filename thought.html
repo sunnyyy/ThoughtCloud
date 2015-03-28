@@ -53,7 +53,7 @@
 
 			<div class='row'>
 				<div class='col-md-2'></div>
-				<form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+				<form method='get' action="php/enter_thought.php">
 					<div class='col-md-8'>
 						<label>.</label><br>
 						<textarea class="form-control input-lg" rows="2" name="thoughtbox" placeholder="Text input" size='50px'
@@ -65,74 +65,29 @@
 					<div class='col-md-1'>
 						<div class="form-group">
 							<label>.</label><br>
-					    <input class="btn btn-default" type="submit" value="Submit"></input>
+					    <input id='ajax_button' class="btn btn-default" type="button" value="Submit"></input>
 					  </div>
 					</div>
-					<div class="form-group">
-				    <label for="search">Search for</label>
-				    <input type="text" class="form-control" id="searchbox" placeholder="Search for">
-				  </div>
-				  <input class="btn btn-default" type="submit" value="Submit"></input>
 				</form>
 			</div> <!--end div row of form-->
 			<hr>
-			<div class='row'>
-				<form method='post' action="<?php echo $_SERVER['PHP_SELF'] ?>">
-					
-				</form>
-			</div>
 
 			<div class='row'>
 				<div class='col-md-3 col-xs-3'></div>
-				<div class='col-md-6 col-xs-6' style="max-height:420px;overflow-y:auto;">
-					<?php
-						// The following loads the Pear MDB2 class and our functions
-						require_once("MDB2.php");
-						require_once("/home/cs304/public_html/php/MDB2-functions.php");
-						require_once('wmdb-dsn.inc');
-						$dbh = db_connect($wmdb_dsn);
-						
-						if ( isset($_POST['thoughtbox']) {
-							$entry = strip_tags( trim( $_POST['thoughtbox'] ) );
+				<div class='col-md-6 col-xs-6'>
+					<script>
+						$("#ajax_button").click(function () {
+					    $.post("php/thought.php",
+					    	$("form").serialize(),
+					    	successful_post(),
+					    	"json"
+					    );
+						}); // end of .click call
 
-							if ( empty($entry) ) {
-								// CASE 1A
-								// Does nothing. (Avoids blank input.)
-								echo "<div class='alert alert-danger alert-dismissible' role='alert' style='width:100%'>\n
-								<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>\n
-								<strong>Oops! Your entry looks empty.</strong>\n
-								</div>\n";
+						successful_post() {
 
-							} elseif ( (strpos($entry,'#') == true) /*&& (strpos($entry,'# ') !== true)*/ ) {
-								// CASE 1B
-								echo '<p>hashtag';
-								echo "<p>$entry";
-
-								preg_match_all("/(#\w+)/", $entry, $matches2);
-								foreach ($matches2[1] as $value2) {
-									echo "<p>$value2";
-								}
-
-								$sql 
-
-							} else {
-								echo "<div class='alert alert-danger alert-dismissible' role='alert' style='width:100%'>\n
-								<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>\n
-								<strong>Uh-oh! Your entry must have (1) a message and (2) hashtags (in that order).</strong>\n
-								</div>\n";
-							}
-						} elseif ( isset($_POST['searchbox']) ) {
-							$search_for = strip_tags( trim( $_POST['searchbox'] ) );
-
-							if ( strpos($search_for,'happy')==true ) {
-								echo "<p>happy";
-							} elseif ( strpos($search_for,'sad')==true ) {
-								echo "<p>sad";
-							} else {
-								echo "<p>other<br>$search_for";
-							}
 						}
-					?>
+					</script>
 				</div>
 			</div>
 			
