@@ -1,21 +1,36 @@
 var thoughts = {happy:[], sad:[], angry:[], stressed:[], excited:[], calm:[], meh:[], other:[]};
 
+//no hash tag at all: don't even save....but unpreselected hashtag save
+
 //"So many stickers at Brandeis #Codestellation #happy"];
 function submitting() {
   var thought_text = document.getElementById('thoughtbox').value;
-  document.getElementById('HERE').innerHTML = thought_text;
-  var mood = getHashTag(thought_text);
-  if (thoughts[mood]) {
-	thoughts[mood].push(thought_text);
-  } else {
-	thoughts["other"].push(thought_text);
+  var moods = getHashTags(thought_text);
+  for (var m in moods) {
+	  if (thoughts[moods[m]]) {
+		thoughts[moods[m]].push(thought_text);
+	  } else {
+		thoughts["other"].push(thought_text);
+	  }
   }
+	setTimeout(function(){  
+		$("#thoughtbox").fadeOut(); 
+		$("#submit_button").fadeOut();
+	}, 1000);
+	
+	setTimeout(function(){  
+		$("#thoughtbox").fadeIn(); 
+		$("#submit_button").fadeIn();
+	}, 1000);
 }
 
-function getHashTag(string) {
-	var mood = string.substring(string.indexOf("#")+1);
-	console.log(mood);
-	return mood;
+function getHashTags(string) {
+	var moods = [];
+	var separated = string.split("#");
+	for (var i = 1; i < separated.length; i++) {
+		moods.push( separated[i].split(" ")[0] );
+	}
+	return moods;
 }
 
 function searching(string) {
