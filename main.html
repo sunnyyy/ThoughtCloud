@@ -1,36 +1,30 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-
-    <title> Welcome </title>
-
+  <title> Welcome </title>
   <link rel="stylesheet" type="text/css" href="main.css">
-
 </head>
-
 <body>
+  <img id="logo" src="cloud.png"></img>
+  <div id="searchdiv">
+    <font size="50" font color="white"><center>How are you feeling today?</center></font><br>
+    <input id="submit" value="I'm feeling..." onkeypress="enter(event);">
+    <button>Submit</button>
+  </div>
 
-  <header><center><font size="10">How are you feeling today?</font></center></header>
-  <!-- <script>
+  <div class="searchButton">
+    <form>
+      <input type="submit" value="Search Past Feels" formaction="search.html">
+    </form>
+  </div>
 
-   function changeBackground() { 
-    if (hashtag == "#happy") { //yellow
-      document.body.style.background = "#FFFF00";
-    } else if (hashtag == "#sad") { //blue
-      document.body.style.background = "#0000FF";
-    } else if (hashtag == "#angry")  //red
-      document.body.style.background = "#FF0000";
-    } else if (hashtag == "#meh") { //green
-      document.body.style.background = "#008000";
-      }
-    }
 
-    </script> -->
-
-<div id="gradient"></div>
-<script src="gradient.js"></script>
+  <div id="gradient"></div>
+  <script src="change.js"></script>
 </body>
-
 </html>
+
+
+    <script>
+    
+    </script>
